@@ -1,0 +1,90 @@
+<!-- 실습_회원가입폼 만들기 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+        span {
+            background-color: blue;
+        }
+        article {
+            display: flex;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <form action="#" method="get">
+            <fieldset>
+                <div>
+                    <h2>회원가입</h2>
+                </div>
+                <span>필수항목</span>
+                <div>
+                    <label for="id">아이디</label> <br>
+                    <input type="text" name="id">
+                </div>
+                <div>
+                    <label for="pw">비밀번호</label> <br>
+                    <input type="password" name="pw">
+                </div>
+                <div>
+                    <label for="em">이메일</label> <br>
+                    <input type="email" name="em" placeholder="example@example.com">
+                </div>
+                <div>
+                    <label for="name">성명</label> <br>
+                    <input type="text" name="name" placeholder="홍길동">
+                </div>
+                <div>
+                    <label for="age">나이</label> <br>
+                    <input type="text" name="age">
+                </div>
+                <span>당신에 대해 알고싶어요!</span>
+                <div>
+                    <label for="hub">취미를 선택해 주세요.</label> <br>
+                    <input type="radio" name="hub" value="게임하기">게임하기
+                    <input type="radio" name="hub" value="음악듣기">음악듣기
+                    <input type="radio" name="hub" value="아이스음료 마시기">아이스음료 마시기
+                </div>
+                <div>
+                    <label for="tea">좋아하는 음료를 선택해 주세요.(중복선택가능)</label> <br>
+                    <input type="checkbox" name="tea" value="쉐이크">쉐이크 종류 음료
+                    <input type="checkbox" name="tea" value="티">티 종류 음료
+                    <input type="checkbox" name="tea" value="커피">커피종류 음료
+                </div>
+                <div>
+                    <label for="date">동아리 참석 가능 날짜:</label>
+                    <input type="date" name="date">
+                </div>
+                <div>
+                    <label for="club">얼.죽.아에서 참여하고 싶은 모임은?:</label>
+                    <select name="club" id="">
+                        <option value="sel">--선택해주세요--</option>
+                        <option value="a">--파이썬동아리--</option>
+                        <option value="b">--자바 동아리--</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="pp">포트폴리오 제출하기</label> <br>
+                    <input type="file" name="pp">
+                </div>
+                <div>
+                    <label for="box">마지막으로 하고싶은 말은?</label> <br>
+                    <textarea name="box" cols="50" rows="10"></textarea>
+                </div>
+                <article>
+                    <button type="reset">다시하기</button>
+                    <button type="submit">제출하기</button>
+                </article>
+            </fieldset>
+        </form>
+    </section>
+</body>
+</html>
