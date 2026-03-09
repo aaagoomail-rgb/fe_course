@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Selector</title>
+    <meta name="description" content="Univeral Selector">
+    <style>
+        :root {
+            /* 공통적인 프로퍼티를 변수로 정의 */
+            --color-main: rgb(255, 255, 153);
+            --color-font: rgb(145, 58, 58);
+        }
+        * {
+            /* 전체 영역에 대한 공통적인 속성 정의 */
+            background-color: lightblue;
+            font-family: 'Courier New', '맑은 고딕';
+            /*font-family: 'Courier New','맑은 고딕'; */
+            font-family: "Open Sans", sans-serif;
+            margin: 0;
+            /* 모든 block 태그들은 고유의 margin 값을 가지고 있다. * 로 margin을 '0'으로 설정 할 수 있다. */
+        }
+        h1 {
+            color: var(--color-font);
+            background-color: darkviolet;
+        }
+        h1, div {
+            background-color: snow;
+        }
+        p {
+            color: var(--color-font);
+            background-color: rgb(152, 152, 240);
+            font-family: "Open Sans", sans-serif;
+        }
+        h3 {
+            background-color: khaki;
+        }
+        /* 똑같은 selector에 여러개의 property가 있다면 가장 마지막단의 설정값이 적용된다. 여기서 겹치는 부분만 이후 설정값이 반영된다. 단, *(all) 을 selector 로 사용했더라도 개별적인 selector가 지정되어 있다면 selector 지정이 우선순위를 갖는다. */
+        </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Universal(All) selector</h1>
+    <div>
+        <h3>Sub Title</h3>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi similique nobis voluptatum, dicta nesciunt excepturi expedita molestias dolorem asperiores, exercitationem officiis cumque aliquam nihil optio fugiat architecto alias iste. Distinctio.</p>
+    </div>
+</body>
+</html>
