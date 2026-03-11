@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Lotte Cinema</title>
+    <style>
+        header {
+            width: 1000px;
+            margin: auto;
+            /* margin의 auto 속성은 margin 으로 설정하고 남은 빈 공간을 알아서 계산하여 가운데 정렬 시켜 줌. */
+            /* border: 1px solid green; */
+        }
+        .hd {
+            display: flex;
+            border-bottom: 1px solid #333;
+            justify-content: space-between;
+        }
+
+        ul {
+            /* border: 1px solid blue; */
+            padding: 0;
+            gap: 15px;
+            display: flex;
+            list-style: none;
+        }
+        ul a {
+            text-decoration: none;
+            font-size: 0.8rem;
+            color: dimgray;
+        }
+        .hd-t-l {
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hd">
+            <nav>
+                <ul class="hd-t-l">
+                    <li>
+                        <i class="fa-brands fa-instagram"></i> <a href="#">isntagram</a>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-youtube"></i> <a href="#">youtube</a>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-meta"></i> <a href="#">facebook</a>
+                    </li>
+                </ul>
+            </nav>
+            <div>
+                <img src="https://www.lottecinema.co.kr/NLCHS/Content/images/common/logo.png" alt="logo">
+            </div>
+            <nav>
+                <ul class="hd-t-r">
+                    <li><a href="#">멤버십</a></li>
+                    <li><a href="#">고객센터</a></li>
+                    <li><a href="#">단체관람/대관문의</a></li>
+                    <li><a href="#">로그인</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Grid</title>
+    <style>
+        div {
+            border: 1px solid blue;
+        }
+        .grid-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 2fr;
+            /* grid-template-columns: repeat(4, 1fr); */
+
+            grid-template-rows: 100px auto;
+
+            gap: 10px;
+            align-items: end; /* 셀 기준 세로 정렬 */
+            justify-content: center; /*셀 기준 가로 정렬 */
+        }
+        img[alt="img1"], img[alt="img2"] {
+            width: 100px; height: 100px;
+        }
+        imt[alt="img3"] {
+            width: 100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .list-grid {
+            border: 1px solid red;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* ul태그 에서는 repeat만 사용 가능 */
+            list-style: none;
+        }
+        .item-grid {
+            grid-column: 1 / 4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Display Grid Layout</h1>
+    <div class="grid-wrap">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+    </div>
+    <ul class="list-grid"> <!--2행 2열-->
+        <li class="itme-grid"><img src="../images/img01_seo.png" alt="img1"></li>
+        <li><img src="../images/img01_seo.png" alt="img2"></li>
+        <li><img src="../images/1919.jpg" alt="img3"></li>
+        <li><img src="../images/img01_seo.png" alt="img2"></li>
+        <li><img src="../images/1919.jpg" alt="img3"></li>
+        <li><img src="../images/img01_seo.png" alt="img2"></li>
+        <li><img src="../images/1919.jpg" alt="img3"></li>
+    </ul>
+</body>
+</html>

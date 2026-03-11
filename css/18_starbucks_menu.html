@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">    
+    <title>Lotte Cinema</title>
+    <style>
+        * {
+            background-color: rgb(246, 245, 239);
+            }
+        header {
+            width: 1100px;
+            margin: auto;
+            font-family: "Nanum Gothic", sans-serif;
+            /* margin의 auto 속성은 margin 으로 설정하고 남은 빈 공간을 알아서 계산하여 가운데 정렬 시켜 줌. */
+            /* border: 1px solid green; */
+        }
+        .hd {
+            display: flex;
+            /* border-bottom: 1px solid #333; */
+            justify-content: space-between;
+        }
+
+        ul {
+            /* border: 1px solid blue; */
+            padding: 0;
+            /* gap: 50px; */
+            display: flex;
+            list-style: none;
+        }
+        ul a {
+            text-decoration: none;
+            color: dimgray;
+            font-size: 0.9rem;
+        }
+        .hd-t-h {
+            /* border: 1px solid red; */
+            justify-content: right;
+            font-size: 0.7rem;
+        }
+        .hd-t-h li:last-child {
+            font-size: 2px;
+            font-weight: 700;
+        }
+        /* .hd-t-h li:last-child input{
+            display: none;
+        } */
+        .hd-t-h li:not(:last-child)::after {
+            content: "|";
+            margin: 0 15px;
+            color: gainsboro;
+        }
+        .hd-t-l {
+            gap: 55px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hd">
+            <div>
+                <img src="https://www.starbucks.co.kr/common/img/common/logo.png" alt="main_logo">
+            </div>
+            <div>
+                <nav>
+                    <ul class="hd-t-h">
+                        <li><a href="#">Sign In</a></li>
+                        <li><a href="#">My Starbucks</a></li>
+                        <li><a href="#">Customer Service & Ideas</a></li>
+                        <li><a href="#">Find a Store</a></li>
+                        <div>
+                            <li>
+                                <!-- <input type="text"> -->
+                                <i class="fa-solid fa-magnifying-glass"></i><a href="#"></a>
+                            </li>
+                        </div>
+                    </ul>
+                </nav>
+                <nav>
+                    <ul class="hd-t-l">
+                        <li><a href="#">COFFEE</a></li>
+                        <li><a href="#">MENU</a></li>
+                        <li><a href="#">STORE</a></li>
+                        <li><a href="#">ESG</a></li>
+                        <li><a href="#">STARBUCKS REWARDS</a></li>
+                        <li><a href="#">CORPORATE SALES</a></li>
+                        <li><a href="#">WHAT'S NEW</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+</body>
+</html>

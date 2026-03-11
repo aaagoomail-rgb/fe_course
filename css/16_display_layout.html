@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Layout</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            margin: 0;
+            /* background-color: lightblue; */
+        }
+        .d1 p {
+            margin: 0;
+            display: inline-block;
+            width: 200px;
+            height: 250px;
+            background-color: aquamarine;
+        }
+        .d2 p {
+            background-color: darkseagreen;
+            width: 200px;
+            height: 250px;
+        }
+        .d2 > div {
+            display: flex;
+            /* flex : 범위 내 태그별로 줄 세우기 */
+            gap: 20px;
+            border: 3px solid blue;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .d3 {
+            border: 3px solid red;
+        }
+        .d3 ul {
+            display: flex;
+            padding: 0;
+            list-style: none;
+            gap: 10px;
+            justify-content: center;
+        }
+        .d3 li {
+            background-color: darkturquoise;
+            border: 1px solid yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>Display Layout</h1>
+    <div class="d1">
+        <h3>Layout 1 : inline-block</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia amet dolore nobis sapiente alias explicabo cum perspiciatis. Sapiente non praesentium ipsam debitis nam sit consectetur. Aut corrupti accusantium officia quasi.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia amet dolore nobis sapiente alias explicabo cum perspiciatis. Sapiente non praesentium ipsam debitis nam sit consectetur. Aut corrupti accusantium officia quasi.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia amet dolore nobis sapiente alias explicabo cum perspiciatis. Sapiente non praesentium ipsam debitis nam sit consectetur. Aut corrupti accusantium officia quasi.</p>
+    </div>
+    <div class="d2">
+        <h3>Layout 2 : flex</h3>
+        <div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia amet dolore nobis sapiente alias explicabo cum perspiciatis. Sapiente non praesentium ipsam debitis nam sit consectetur. Aut corrupti accusantium officia quasi.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia amet dolore nobis sapiente alias explicabo cum perspiciatis. Sapiente non praesentium ipsam debitis nam sit consectetur. Aut corrupti accusantium officia quasi.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia amet dolore nobis sapiente alias explicabo cum perspiciatis. Sapiente non praesentium ipsam debitis nam sit consectetur. Aut corrupti accusantium officia quasi.</p>
+        </div>
+        <!-- p 태그 간 조금의 간격(줄 바꿈 포함)이라도 있으면 inline-block 을 사용하더라도 태그간 공백이 생긴다. 미적 외관을 포기하고 줄바꿈 없이 바로 이어지게 만든다면 공백이 사라지기는 한다.
+        그런데, 만약 dispaly 옵션으로 flex 속성을 부여해준다면 공백이 생기지 않는다.
+        flex 를 적용하고 별도의 p 태그가 필요하다면 div 으로 블록 영역을 나누어 주면 된다. -->
+    </div>
+    <div class="d3">
+        <h3>Layout 3 : flex import</h3>
+        <ul>
+            <li>Itme 1</li>
+            <li>Itme 2</li>
+            <li>Itme 3</li>
+            <li>Itme 4</li>
+            <li>Itme 5</li>
+        </ul>
+    </div>
+</body>
+</html>
