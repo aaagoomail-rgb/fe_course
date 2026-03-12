@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float Style</title>
+    <style>
+        .box {
+            float: left;
+        }
+        .box div {
+            width: 100px;
+            height: 100px;
+            /* display: inline-block; */
+        }
+        .d1 { background-color: aquamarine; 
+            float: left;}
+        .d2 { background-color: blueviolet; 
+            float: left;}
+        .d3 { background-color: lightcoral; 
+            float: left;}
+        .box p { clear: left;}
+        .img_g {
+            width: 500; height: 300px;
+            border: 1px solid red;
+        }
+        .img_g img {
+            width: 200px; height: 200px;
+            float: left;
+            padding: 20px;
+        }
+        p.no-float {clear: both; /* float 속성을 삭제 */}
+    </style>
+</head>
+<body>
+    <h1>Float Style : block level의 엘리먼트를 한 줄로 정렬하여 배치</h1>
+    <div class="box">
+        <div class="d1"></div>
+        <div class="d2"></div>
+        <div class="d3"></div>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis deserunt, qui voluptatum aperiam sed ex velit eligendi ipsam consequatur fugiat, facere non, sint nesciunt? Perspiciatis perferendis officia optio odit iste?</p>
+    </div>
+    <div class="img_g">
+        <img src="../images/img01_seo.png" alt="img">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo dicta recusandae dignissimos labore cupiditate reiciendis suscipit, nobis voluptates illum quisquam cum eveniet iste repellat consectetur alias? Maxime perspiciatis ipsa ad.</p>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus dolores a minus harum eum rerum dolor possimus, cum, ratione distinctio nobis, aliquid eligendi enim fugit aspernatur consequuntur impedit quibusdam alias.</p>
+</body>
+</html>
