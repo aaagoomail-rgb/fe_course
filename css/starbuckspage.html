@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starbucks Korea</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* 초기화 */
+        * { 
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        /* 헤더 영역 */
+        header {
+            width: 100%;
+            background-color: #f6f5ef;
+            border-bottom: 1px solid #e5e5e5;
+            position: fixed; /* 헤더 고정 */
+            top: 0; z-index: 100;
+        }
+        .header-inner {
+            max-width: 1100px;
+            margin: auto;
+            height: 120px;
+            display: flex;
+            align-items: center; /* 수직 가운데 */
+            justify-content: space-between;
+        }
+        .header-logo img { width: 75px; }
+
+        .header-menu {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .header-menu-top ul, 
+        .header-menu-bottom ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        .header-menu-top ul { gap: 15px; font-size: 13px; }
+        .header-menu-bottom ul { gap: 40px; font-size: 14px; }
+
+        .header-menu-top ul a, 
+        .header-menu-bottom ul a {
+            text-decoration: none;
+            color: #333;
+        }
+        .header-menu-top ul a:hover { text-decoration: underline; }
+        .header-menu-bottom ul a:hover { color: #006241; text-decoration: underline; }
+
+        /* 검색창 */
+        .search-area {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 10px;
+            background: #fff;
+        }
+        .search-area input {
+            border: none; outline: none; width: 0;
+            transition: width 0.4s;
+        }
+        .search-area:hover input { width: 150px; } /* 호버 시 입력창 나타남 */
+
+        /* 메인 비주얼 */
+        main { margin-top: 120px; } /* 헤더 높이만큼 띄우기 */
+        
+        .main_top {
+            width: 100%;
+            height: 646px; /* 고정 높이 혹은 vw 사용 */
+            background-image: url('https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_bg_260220.jpg');
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main_top_inner {
+            width: 1100px;
+            height: 100%;
+            margin: 0 auto;
+            /* position: relative; */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .slogan_area {
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            flex-shrink: 0;
+        }
+        .slogan_area img { margin-bottom: 20px; }
+
+        #btn {
+            display: block;
+            padding: 10px 30px;
+            border: 2px solid #ed638c;
+            border-radius: 5px;
+            background: transparent;
+            color: #ed638c;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        #btn:hover {
+            background-color: #ed638c;
+            color: #fff;
+        }
+
+        /* 음료 이미지 애니메이션 */
+        .main_top_drinks {
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            position: relative;
+            width: 60%;
+            /* right: 0; */
+        }
+        .main_top_drinks img, .slogan_area #btn {
+            max-width: 250px;
+            height: auto;
+            margin-left: -10%; 
+            /*음료 이미지 약간 겹쳐보이게 함*/
+            opacity: 0;
+            animation: fadein 1s ease forwards;
+        }
+        .main_top_drinks img:first-child {
+            margin-left: 0; /* 첫 번째 음료는 왼쪽 마진 제거 */
+        }
+
+        .main_top_drinks .im1 { animation-delay: 1s; }
+        .main_top_drinks .im2 { animation-delay: 1.5s; }
+        .main_top_drinks .im3 { animation-delay: 2s; }
+        .main_top_drinks .im4 { animation-delay: 2.5s; }
+        .main_top_drinks .im5 { animation-delay: 3s; }
+        .slogan_area #btn { animation-delay: 3.5s;}
+
+        @keyframes fadein {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="header-logo">
+                <a href="#"><img src="https://www.starbucks.co.kr/common/img/common/logo.png" alt="Logo"></a>
+            </div>
+            <div class="header-menu">
+                <nav class="header-menu-top">
+                    <ul>
+                        <li><a href="#">Sign In</a></li>
+                        <li><a href="#">My Starbucks</a></li>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Find a Store</a></li>
+                        <li class="search-area">
+                            <input type="text" placeholder="통합검색">
+                            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="header-menu-bottom">
+                    <ul>
+                        <li><a href="#">COFFEE</a></li>
+                        <li><a href="#">MENU</a></li>
+                        <li><a href="#">STORE</a></li>
+                        <li><a href="#">ESG</a></li>
+                        <li><a href="#">STARBUCKS REWARDS</a></li>
+                        <li><a href="#">CORPORATE SALES</a></li>
+                        <li><a href="#">WHAT'S NEW</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="main_top">
+            <div class="main_top_inner">
+                <div class="slogan_area">
+                    <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_slogan_mo_260220.png" alt="Spring Slogan">
+                    <button id="btn">자세히 보기</button>
+                </div>
+                <div class="main_top_drinks">
+                    <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink01_260220.png" class="im1">
+                    <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink02_260220.png" class="im2">
+                    <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink03_260220.png" class="im3">
+                    <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink04_260220.png" class="im4">
+                    <img src="https://image.istarbucks.co.kr/upload/common/img/main/2026/2026_spring1_ph1_top_drink05_260220.png" class="im5">
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
