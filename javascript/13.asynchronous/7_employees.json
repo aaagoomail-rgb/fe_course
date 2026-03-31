@@ -2,11 +2,11 @@
     "title" : "👩 Good Company 👨",
     "list" : [
         { "name" : "Hong", "age" : 30, "department": "HR"},
-        { "name" : "Kim", "age" : 23, "department": "HR"},
+        { "name" : "Kim", "age" : 23, "department": "영업"},
         { "name" : "Lee", "age" : 54, "department": "HR"},
-        { "name" : "Park", "age" : 18, "department": "HR"},
+        { "name" : "Park", "age" : 18, "department": "총무"},
         { "name" : "Choie", "age" : 37, "department": "HR"},
-        { "name" : "Gang", "age" : 25, "department": "HR"},
+        { "name" : "Gang", "age" : 25, "department": "개발"},
         { "name" : "Sushi", "age" : 29, "department": "HR"}
     ]
 }
