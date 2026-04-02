@@ -18,6 +18,7 @@ const openModal = (infoObj) => {
     let modal = document.querySelector('#modal');
     let modalBody = document.querySelector('#modal-body');
     let modalClose = document.querySelector('#modal-close');
+    let posters = infoObj.posterObj.split(",");
 
     modalClose.addEventListener('click', () => {
         modal.style.display = 'none';
@@ -27,15 +28,23 @@ const openModal = (infoObj) => {
     let output = `
         <h3>[${infoObj.rank}]${infoObj.movieNm}</h3>
         <ul>
-            <li><label>🎥감독 : </lable> ${infoObj.director}</li>
-            <li><label>🍿배우 : </lable> ${infoObj.actors}</li>
+            <li>
+                ${
+                    posters.map(poster => `
+                            <img src="${poster}" style="width:100px;">
+                        `).join("")
+                }
+                
+            </li>
+            <li><label>🎥감독 : </label> ${infoObj.director}</li>
+            <li><label>🍿배우 : </label> ${infoObj.actors}</li>
         </ul>
     `;
     modal.style.display = 'flex';
     modalBody.innerHTML = output;
 }
 
-const handleMovieInfo = async(movieCd, rank) => {
+const handleMovieInfo = async(movieCd, rank, poster, posterObj) => {
     // console.log('영화 상세 정보', movieCd);
     let info = await getMovieInfo(movieCd);
     let movieNm = info.movieInfoResult.movieInfo.movieNm;
@@ -43,7 +52,28 @@ const handleMovieInfo = async(movieCd, rank) => {
     let actors = info.movieInfoResult.movieInfo.actors[0].peopleNm;
     
     console.log(info, movieNm, director, actors);
-    openModal({movieNm, director, actors, rank});
+    openModal({movieNm, director, actors, rank, poster, posterObj});
+}
+
+//poster 가져오기 : KMDB API
+const searchMoviePoster = async (movieNm, openDt) => {
+    const key = '59H5F0U0OFQB3R2261VM';
+    let kmdb_url = `http://api.koreafilm.or.kr/openapi-data2/wisenut/search_api`;
+    kmdb_url += `/search_json2.jsp?collection=kmdb_new2&detail=Y`;
+    kmdb_url += `&title=${movieNm}`;
+    kmdb_url += `&releaseDts=${openDt}&ServiceKey=${key}`;
+
+    let response = await fetch(kmdb_url);
+    let kmdb = await response.json(); 
+    let data = kmdb?.Data?.[0]?.Result;
+    let poster = null;
+    if(data === null && data.length === 0) {
+        // poster = [];
+        return [];
+    } else {
+        return await kmdb?.Data[0]?.Result[0]?.posters.split("|");
+    }
+    // return poster;
 }
 
 const handleBoxOffice = async() => {
@@ -63,6 +93,8 @@ const handleBoxOffice = async() => {
         let kobis = await getJson(type, targetDT);
         let kobisResult = kobis.boxOfficeResult;
         let kobisBoxofficeList = null;
+        let posterList = [];
+        let posterObjects = [];
         if(type === 'Daily') {
             kobisBoxofficeList = kobis.boxOfficeResult.dailyBoxOfficeList;
         } else {
@@ -71,6 +103,17 @@ const handleBoxOffice = async() => {
         // console.log(sdate, typeof sdate);
         // console.log(targetDT);
         console.log(kobis);
+
+        for(const movie of kobisBoxofficeList) {
+            //영화제목(movieNm), 개봉일(openDt)
+            let movieNm = movie.movieNm;
+            let openDt = movie.openDt.split("-").reduce((acc, cur)=>acc+cur);
+            let posters = await searchMoviePoster(movieNm, openDt);        
+            posterObjects.push(posters);    
+            if(posters.length !== 0)  posterList.push(posters[0]);   
+            else posterList.push('');
+        }
+        console.log(posterObjects);
 
         let output = `
             <h1>${kobisResult.boxofficeType}</h1>
@@ -85,10 +128,12 @@ const handleBoxOffice = async() => {
                     <th>누적매출액</th>
                 </tr>
                 ${  // JS 코드
-                    kobisBoxofficeList.map(status =>
+                    kobisBoxofficeList.map((status, idx) =>
                         `<tr>
                             <td>${status.rank}</td>
-                            <td><a href="#" onclick = "handleMovieInfo(${status.movieCd}, ${status.rank})">${status.movieNm}</a></td>
+                            <td>
+                                <img src="${posterList[idx]}" style="width:80px;">
+                                <a href="#" onclick = "handleMovieInfo(${status.movieCd}, ${status.rank}, '${posterList[idx]}', '${posterObjects[idx]}')">${status.movieNm}</a></td>
                             <td>${status.openDt}</td>
                             <td>${parseInt(status.audiCnt).toLocaleString()} 명</td>
                             <td>${parseInt(status.audiAcc).toLocaleString()} 명</td>
