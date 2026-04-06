@@ -9,12 +9,12 @@ window.addEventListener('DOMContentLoaded', () => {
     let btnLogin = document.querySelector('#btnLogin');
 
     id.addEventListener('input', () => {
-        if(id.value.trim() === '') {
+        if(id.value.trim() !== '') {
             idMsg.style.display = 'none';
         }
     });
     pwd.addEventListener('input', () => {
-        if(pwd.value.trim() === '') {
+        if(pwd.value.trim() !== '') {
             pwdMsg.style.display = 'none';
         }
     });
@@ -23,16 +23,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if(id.value.trim() === '') {
             idMsg.style.display = 'block';
-            idMsg.style.fontsize = '12px';
+            idMsg.style.fontSize = '12px';
             idMsg.style.color = 'red';
-            idMsg.style.textContent = '아이디를 입력해주세요';
+            idMsg.textContent = '아이디를 입력해주세요';
             id.focus();
             isValid = false;
         } else if(pwd.value.trim() === '') {
             pwdMsg.style.display = 'block';
-            pwdMsg.style.fontsize = '12px';
+            pwdMsg.style.fontSize = '12px';
             pwdMsg.style.color = 'red';
-            pwdMsg.style.textContent = '비밀번호를 입력해주세요';
+            pwdMsg.textContent = '비밀번호를 입력해주세요';
             pwd.focus();
             isValid = false;
         } else {

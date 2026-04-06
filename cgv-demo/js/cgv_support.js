@@ -40,12 +40,25 @@ async function creatTable() {
                 </tr>
             </thead>
             <tbody>
-                
+                ${
+                    list.map((item, idx) => `
+                        <tr>
+                            <td>${idx+1}</td>
+                            <td>${item.type}</td>
+                            <td>${item.title}</td>
+                            <td>${item.rdate}</td>
+                            <td>${item.hits}</td>
+                        </tr>
+                    `).join("")
+                }
             </tbody>
             <tfoot>
                 <tr>
                     <td colspan="5">1 2 3 4 5  >></td>
                 </tr>
             </tfoot>
+        </table>
     `;
+
+    document.querySelector('#before-table').insertAdjacentHTML('afterEnd', output);
 }
