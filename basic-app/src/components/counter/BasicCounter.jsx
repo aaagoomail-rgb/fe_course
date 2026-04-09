@@ -23,7 +23,7 @@ export default function BasicCounter( {click, total} ) {
         }
     }
     return (
-        <div style={ {border: '1px solid gray', padding: '10px 20px'} }>
+        <div style={ {border: '1px solid gray', padding: '10px 20px', margin: '20px'} }>
             <h1>React Counter</h1>
             <h2>
                 Counter :: { flag ? <span style={{color:'red'}}>{count} / {total}</span> : <span style={{color:'blue'}}>{count} / {total}</span> }
