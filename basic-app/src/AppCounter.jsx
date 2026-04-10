@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import BasicCounter from './components/counter/BasicCounter.jsx';
+import Counter from './components/counter/Counter.jsx'
 
 export default function App() {
     // let totalCount = 0; -> 값 변동시 자동 렌더링 X
@@ -12,10 +13,12 @@ export default function App() {
     return (
         <>
             <h1>AppCounter</h1>
-            <h1>total Count :: <span><b>{totalCount}</b></span></h1>
+            {/* <h1>total Count :: <span><b>{totalCount}</b></span></h1>
             <BasicCounter click={handleTotalCount} total={totalCount}/>
             <BasicCounter click={handleTotalCount} total={totalCount}/>
-            <BasicCounter click={handleTotalCount} total={totalCount}/>
+            <BasicCounter click={handleTotalCount} total={totalCount}/> */}
+            <hr/>
+            <Counter />
         </>
     )
 }
