@@ -28,23 +28,25 @@ export default function Join() {
         const { name, value } = e.target;
         setForm({...form, [name]: value});
     }
-    console.log('form -->', form);
+    console.log(form);
     
     const handleJoinSubmit = (e) => {
         e.preventDefault();
 
         if(idRef.current.value == "") {
-            setErrors({...errors, id: '아이디를 입력 해 주세요.'})
+            alert("아이디 입력해주세요");
             idRef.current.focus();
         } else if(pwdRef.current.value === "") {
-            setErrors({...errors, pw: '패스워드를 체크 해 주세요.'});
+            alert("패스워드를 입력해주세요");
             pwdRef.current.focus();
         } else {
             console.log('서버 전송 -->');
         }
     }
 
-    console.log('errors-->', errors);
+    const handleFormReset = () => {
+        setForm(initForm);
+    }
 
     return (
         <>
@@ -96,12 +98,12 @@ export default function Join() {
                             </li>
                             <li>
                                 <label htmlFor=""><b>이메일 주소</b></label>
-                                { (form.emailName !== "" && form.emailDomain !== "default") && <span id="emailMsg">이메일주소를 입력해주세요</span>}
+                                { !(form.emailName !== "" && form.emailDomain !== "default") && <span id="emailMsg">이메일주소를 입력해주세요</span>}
                                 <div>
-                                    <input type="text" name="emailname" id="emailname" ref={emailNameRef}
-                                            placeholder="이메일 주소"></input> onChange={handleFormChange}
+                                    <input type="text" name="emailName" id="emailName" ref={emailNameRef} value={form.emailName} onChange={handleFormChange}
+                                            placeholder="이메일 주소"></input>
                                     <span>@</span>       
-                                    <select name="emaildomain" id="emaildomain" ref={emailDomainRef}>
+                                    <select name="emailDomain" id="emailDomain" ref={emailDomainRef} value={form.emailDomain} onChange={handleFormChange}>
                                         <option value="default">선택</option>
                                         <option value="naver.com">naver.com</option>
                                         <option value="gmail.com">gmail.com</option>
