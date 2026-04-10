@@ -17,8 +17,8 @@ export default function Join() {
         cpwd:'',
         name:'',
         phone:'',
-        emailNameRef:'',
-        emailDomainRef:''
+        emailName:'',
+        emailDomain:'default'
     }
 
     const [form, setForm] = useState(initForm);
@@ -96,7 +96,7 @@ export default function Join() {
                             </li>
                             <li>
                                 <label htmlFor=""><b>이메일 주소</b></label>
-                                { form.emailNameRef === "" && <span id="emailMsg">이메일주소를 입력해주세요</span>}
+                                { (form.emailName !== "" && form.emailDomain !== "default") && <span id="emailMsg">이메일주소를 입력해주세요</span>}
                                 <div>
                                     <input type="text" name="emailname" id="emailname" ref={emailNameRef}
                                             placeholder="이메일 주소"></input> onChange={handleFormChange}
