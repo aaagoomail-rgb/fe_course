@@ -2,25 +2,25 @@
  * Content의 타이틀 관련 컴포넌트 모음
  */
 export function Description({ description }) {
-    return (
+    return(
         <p className="description">{description}</p>
     )
 }
 
 export function TitleDescription({ TitleDescription }) {
-    return (
+    return(
         <p>{TitleDescription}</p>
     )
 }
 
 export function SubTitle({ subTitle }) {
-    return (
+    return(
         <p className="description">{subTitle}</p>
     )
 }
 
 export function Title({ title }) {
-    return (
+    return(
         <h2 className="title">{title}</h2>
     )
 }

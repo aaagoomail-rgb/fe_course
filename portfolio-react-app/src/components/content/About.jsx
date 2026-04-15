@@ -1,17 +1,14 @@
-import { Title, Description } from "../commons/Titles"
-import Majors from "./Majors";
-import Jobs from "./Jobs";
+import { Title, Description } from "../commons/Titles.jsx"
+import Majors from "./Majors.jsx";
+import Jobs from "./Jobs.jsx";
 
-export default function About() {
-    const lorem = `Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Facere sequi maiores quisquam dolore nisi possimus in, atque at voluptatibus ab velit expedita aperiam doloribus et nam, perferendis provident quia corporis!`;
-
-    return(
+export default function About({data}) {
+    return (
         <section id="about" className="section container">
-            <Title title = "About me" />
-            <Description description={lorem} />
-            <Majors />
-            <Jobs />
+            <Title title="About me" />
+            <Description description={data?.description} />
+            <Majors majors={data?.majors} />
+            <Jobs jobs={data?.jobs}/>            
         </section>
     )
 }

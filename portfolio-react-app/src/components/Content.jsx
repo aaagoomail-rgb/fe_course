@@ -1,11 +1,12 @@
-import Home from "./content/Home"
-import About from "./content/About"
+import Home from "./content/Home.jsx"
+import About from "./content/About.jsx"
 
-export default function Content() {
-    return (
+export default function Content({ data }) {
+    // console.log('Content :: data :: ', data?.home);    
+    return(
         <>
-            <Home />
-            <About />
+            <Home data={data?.home}/>
+            <About data={data?.about}/> 
         </>
     )
 }
